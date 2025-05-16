@@ -25,7 +25,7 @@ void clean(char *word) {
 		}
 		i++;
 	}
-    word[j] = '\0';
+	word[j] = '\0';
 }
 
 int main() {
@@ -39,7 +39,13 @@ int main() {
 		printf("No se pudo abrir el archivo.\n");
 		return 1;
 	}
-
+	//Muentra el archivo en pantalla
+	printf("Contenido del archivo input.txt. \n");
+	char line[256];
+	while (fgets(line , sizeof(line) , file)) {
+		printf("%s" , line);
+	}
+	rewind(file);
 	//Lee palabra por palabra
 	while (fscanf(file, "%s", currentWord) == 1) {
 		clean(currentWord);
